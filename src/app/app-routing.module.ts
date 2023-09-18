@@ -5,6 +5,7 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { ContactPageComponent } from './pages/contact-page/contact-page.component';
 import { ContactDetailPageComponent } from './pages/contact-detail-page/contact-detail-page.component';
 import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   {
@@ -23,10 +24,12 @@ const routes: Routes = [
   {
     path: 'contacts',
     component: ContactPageComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'contacts/:id',
     component: ContactDetailPageComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: '**',

@@ -1,9 +1,9 @@
-<h1>Home Page</h1>
-<h3>Welcome</h3>
+<h1>HOME PAGE</h1>
+<h3>Welcome to our home page</h3>
 
 <!-- Hacer un login -->
-<div [ngStyle]="{display: 'flex',gap:'1rem'}">
+<div [ngStyle]="{display: 'flex',gap:'1rem', justifyItems:'center', alignItems:'center'}">
   <a routerLink="/login">Login</a>
 
-  <a routerLink="/contacts">Check your contacts</a>
+  <button (click)="navigateToContacts()">Check your contacts</button>
 </div>

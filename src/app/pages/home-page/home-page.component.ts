@@ -12,6 +12,6 @@ export class HomePageComponent implements OnInit {
   ngOnInit(): void {}
 
   navigateToContacts(): void {
-    // this.router.navigate();
+    this.router.navigate(['/contacts']);
   }
 }
