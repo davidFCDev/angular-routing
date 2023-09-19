@@ -1,10 +1,26 @@
 <h1>HOME PAGE</h1>
 <h3>Welcome to our home page</h3>
-<h4 *ngIf="selectedContact">You selected: {{selectedContact.name}}</h4>
+<h4 *ngIf="selectedContact">You selected: {{ selectedContact.name }}</h4>
 
 <!-- Hacer un login -->
-<div [ngStyle]="{display: 'flex',gap:'1rem', justifyItems:'center', alignItems:'center'}">
+<div
+  [ngStyle]="{
+    display: 'flex',
+    gap: '1rem',
+    justifyItems: 'center',
+    alignItems: 'center'
+  }"
+>
   <a *ngIf="!token" routerLink="/login">Login</a>
 
   <button (click)="navigateToContacts()">Check your contacts</button>
+
+  <div [ngStyle]="{ display: 'flex', gap: '1rem' }">
+    <a [routerLink]="['/contacts']" [queryParams]="{ gender: 'female' }"
+      >Males</a
+    >
+    <a [routerLink]="['/contacts']" [queryParams]="{ gender: 'male' }"
+      >Females</a
+    >
+  </div>
 </div>

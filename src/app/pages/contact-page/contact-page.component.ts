@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { IContact } from 'src/app/models/contact.interface';
 
 @Component({
@@ -14,24 +14,31 @@ export class ContactPageComponent implements OnInit {
       name: 'John',
       surname: 'Doe',
       email: 'j@gmail.com',
+      gender: 'male',
     },
     {
       id: 1,
       name: 'Jane',
       surname: 'Doe',
       email: 'jane@gmail.com',
+      gender: 'female',
     },
     {
       id: 2,
       name: 'George',
       surname: 'Smith',
       email: 'gs@gmail.com',
+      gender: 'male',
     },
   ];
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private route: ActivatedRoute) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.route.queryParams.subscribe((params: any) => {
+      console.log('Query params: ', params.gender);
+    });
+  }
 
   // Ejemplo de paso de informacion entre componentes a través del Estado
 

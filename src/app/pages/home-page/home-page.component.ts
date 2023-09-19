@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
 import { IContact } from 'src/app/models/contact.interface';
 
 @Component({
@@ -8,7 +8,6 @@ import { IContact } from 'src/app/models/contact.interface';
   styleUrls: ['./home-page.component.scss'],
 })
 export class HomePageComponent implements OnInit {
-
   token: string | null = null;
   selectedContact: IContact | undefined;
 
@@ -26,6 +25,12 @@ export class HomePageComponent implements OnInit {
   }
 
   navigateToContacts(): void {
-    this.router.navigate(['/contacts']);
+    let navigationExtras: NavigationExtras = {
+      queryParams: {
+        gender: 'female',
+      },
+    };
+
+    this.router.navigate(['/contacts'], navigationExtras);
   }
 }
