@@ -1,9 +1,10 @@
 <h1>HOME PAGE</h1>
 <h3>Welcome to our home page</h3>
+<h4 *ngIf="selectedContact">You selected: {{selectedContact.name}}</h4>
 
 <!-- Hacer un login -->
 <div [ngStyle]="{display: 'flex',gap:'1rem', justifyItems:'center', alignItems:'center'}">
-  <a routerLink="/login">Login</a>
+  <a *ngIf="!token" routerLink="/login">Login</a>
 
   <button (click)="navigateToContacts()">Check your contacts</button>
 </div>
