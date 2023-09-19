@@ -10,14 +10,16 @@ export class ContactService {
 
   constructor() {}
 
-  getContacts(gender?: string): Promise<IContact[] | undefined>{
-    if (gender) {
+  getContacts(gender?: string): Promise<IContact[]> | undefined{
+    if (gender == 'male' || gender == 'female') {
       let filteredList: IContact[] = this.contactsList.filter((contact) => {
         contact.gender == gender;
         return Promise.resolve(filteredList);
       });
+    } else if (gender == 'all') {
+      return Promise.resolve(this.contactsList);
     } else {
-      return
+      return Promise.reject('Not valid filter');
     }
   }
 }

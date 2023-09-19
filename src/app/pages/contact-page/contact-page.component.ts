@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { IContact } from 'src/app/models/contact.interface';
+import { ContactService } from 'src/app/services/contact.service';
 
 @Component({
   selector: 'app-contact-page',
@@ -8,36 +9,29 @@ import { IContact } from 'src/app/models/contact.interface';
   styleUrls: ['./contact-page.component.scss'],
 })
 export class ContactPageComponent implements OnInit {
-  contactList: IContact[] = [
-    {
-      id: 0,
-      name: 'John',
-      surname: 'Doe',
-      email: 'j@gmail.com',
-      gender: 'male',
-    },
-    {
-      id: 1,
-      name: 'Jane',
-      surname: 'Doe',
-      email: 'jane@gmail.com',
-      gender: 'female',
-    },
-    {
-      id: 2,
-      name: 'George',
-      surname: 'Smith',
-      email: 'gs@gmail.com',
-      gender: 'male',
-    },
-  ];
+  genderFilter: string = 'all'; // Variable para filtrar por género
+  contactsList: IContact[] = []; // Lista de contactos
 
-  constructor(private router: Router, private route: ActivatedRoute) {}
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    private contactService: ContactService
+  ) {}
 
   ngOnInit(): void {
+    //Obtenemos las query params
     this.route.queryParams.subscribe((params: any) => {
       console.log('Query params: ', params.gender);
+      if (params.gender) {
+        this.genderFilter = params.gender;
+      }
     });
+
+    // Obtenemos la lista de contactos
+    this.contactService
+      .getContacts(this.genderFilter)
+      ?.then((list) => (this.contactsList = list))
+      .catch((error) => console.log(error));
   }
 
   // Ejemplo de paso de informacion entre componentes a través del Estado
