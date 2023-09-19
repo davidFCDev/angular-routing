@@ -9,7 +9,10 @@ import { Router } from '@angular/router';
 export class HomePageComponent implements OnInit {
   constructor(private router: Router) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    // Leemos del estado del historial de navegación
+    console.log(history.state.data);
+  }
 
   navigateToContacts(): void {
     this.router.navigate(['/contacts']);

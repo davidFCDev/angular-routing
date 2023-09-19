@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { IContact } from 'src/app/models/contact.interface';
 
 @Component({
@@ -28,7 +29,19 @@ export class ContactPageComponent implements OnInit {
     },
   ];
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit(): void {}
+
+  // Ejemplo de paso de informacion entre componentes a través del Estado
+
+  comeBackHome(contact: IContact) {
+    let navigationExtras = {
+      state: {
+        data: contact,
+      },
+    };
+
+    this.router.navigate(['/home'], navigationExtras);
+  }
 }
