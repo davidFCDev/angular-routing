@@ -31,7 +31,8 @@ export class ContactPageComponent implements OnInit {
     this.contactService
       .getContacts(this.genderFilter)
       ?.then((list) => (this.contactsList = list))
-      .catch((error) => console.log(error));
+      .catch((error) => console.log(error))
+      .finally(() => console.log('Promise completed'));
   }
 
   // Ejemplo de paso de informacion entre componentes a través del Estado
