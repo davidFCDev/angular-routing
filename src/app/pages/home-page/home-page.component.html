@@ -2,7 +2,7 @@
 <h1>Welcome!</h1>
 
 <ng-container *ngIf="selectedContact; else templateName">
-  <h4>Invisible friend: {{ selectedContact.name }}</h4>
+  <h4>Your invisible friend is {{ selectedContact.name }} !!</h4>
 </ng-container>
 <ng-template #templateName>
   <div>
