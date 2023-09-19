@@ -11,7 +11,9 @@ export class HomePageComponent implements OnInit {
 
   ngOnInit(): void {
     // Leemos del estado del historial de navegación
-    console.log(history.state.data);
+    if (history.state.data) {
+      console.log(history.state.data);
+    }
   }
 
   navigateToContacts(): void {
