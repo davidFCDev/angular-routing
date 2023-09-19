@@ -1,6 +1,14 @@
-<h1>HOME PAGE</h1>
-<h3>Welcome to our home page</h3>
-<h4 *ngIf="selectedContact">You selected: {{ selectedContact.name }}</h4>
+
+<h1>Welcome!</h1>
+
+<ng-container *ngIf="selectedContact; else templateName">
+  <h4>Invisible friend: {{ selectedContact.name }}</h4>
+</ng-container>
+<ng-template #templateName>
+  <div>
+    <h4>Who is your invisible friend?</h4>
+  </div>
+</ng-template>
 
 <!-- Hacer un login -->
 <div
@@ -13,7 +21,7 @@
 >
   <a *ngIf="!token" routerLink="/login">Login</a>
 
-  <button (click)="navigateToContacts()">Check your contacts</button>
+  <button (click)="navigateToContacts()">Check all contacts</button>
 
   <div [ngStyle]="{ display: 'flex', gap: '1rem' }">
     <a [routerLink]="['/contacts']" [queryParams]="{ gender: 'female' }"
