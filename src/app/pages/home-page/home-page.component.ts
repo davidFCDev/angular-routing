@@ -27,7 +27,7 @@ export class HomePageComponent implements OnInit {
   navigateToContacts(): void {
     let navigationExtras: NavigationExtras = {
       queryParams: {
-        gender: 'female',
+        gender: 'all',
       },
     };
 

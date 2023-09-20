@@ -24,10 +24,10 @@
   <button (click)="navigateToContacts()">Check all contacts</button>
 
   <div [ngStyle]="{ display: 'flex', gap: '1rem' }">
-    <a [routerLink]="['/contacts']" [queryParams]="{ gender: 'female' }"
+    <a [routerLink]="['/contacts']" [queryParams]="{ gender: 'male' }"
       >Males</a
     >
-    <a [routerLink]="['/contacts']" [queryParams]="{ gender: 'male' }"
+    <a [routerLink]="['/contacts']" [queryParams]="{ gender: 'female' }"
       >Females</a
     >
   </div>
