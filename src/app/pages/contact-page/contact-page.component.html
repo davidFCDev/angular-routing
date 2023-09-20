@@ -1,18 +1,35 @@
 <h1>Your contacts:</h1>
 
 <!-- List your contacts and navegate across them -->
-<div *ngFor="let contact of contactsList; let i = index">
-  <div
-    routerLink="/contacts/{{ contact.id }}"
-    [state]="{ data: contact }"
-    [ngStyle]="{
-      display: 'flex',
-      gap: '1rem',
-      justifyItems: 'center',
-      alignItems: 'flex-end'
-    }"
-  >
-    <h2 class="contact-name">{{ contact.name }}</h2>
-    <button (click)="comeBackHome(contact)">Select contact</button>
+<div>
+  <div *ngFor="let contact of contactsList; let i = index">
+    <div
+      routerLink="/contacts/{{ contact.id }}"
+      [state]="{ data: contact }"
+      [ngStyle]="{
+        display: 'flex',
+        gap: '1rem',
+        justifyItems: 'center',
+        alignItems: 'flex-end'
+      }"
+    >
+      <h2 class="contact-name">{{ contact.name }}</h2>
+      <button (click)="comeBackHome(contact)">Select contact</button>
+    </div>
+  </div>
+  <div class="contact-text">
+    <ng-container
+      *ngIf="
+        genderFilter == 'female' || genderFilter == 'male';
+        else genderTemplate
+      "
+    >
+      <p>
+        Filtered by <strong [ngStyle]="{fontSize:'1.1rem'}">{{ genderFilter }}</strong>
+      </p>
+    </ng-container>
+    <ng-template #genderTemplate>
+      <p>Showing all contacts</p>
+    </ng-template>
   </div>
 </div>
