@@ -1,5 +1,7 @@
-<h1>Contact: {{id}}</h1>
+<h1>Contact({{ contact.id }}):</h1>
 
-<h2>Name:</h2>
-<h2>Email:</h2>
-
+<div class="card">
+  <h2>Name - {{ contact.name }} {{ contact.surname }}</h2>
+  <h3>Email - <a href="#">{{ contact.email }}</a></h3>
+  <h3>Gender - {{ contact.gender }}</h3>
+</div>
