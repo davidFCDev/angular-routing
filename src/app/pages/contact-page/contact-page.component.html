@@ -31,5 +31,7 @@
     <ng-template #genderTemplate>
       <p>Showing all contacts</p>
     </ng-template>
+
+    <a [routerLink]="['/home']" [queryParams]="{gender: genderFilter}">Return</a>
   </div>
 </div>
