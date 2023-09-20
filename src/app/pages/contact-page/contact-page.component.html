@@ -5,7 +5,7 @@
   <div *ngFor="let contact of contactsList; let i = index">
     <div
       routerLink="/contacts/{{ contact.id }}"
-      [state]="{ data: contact }"
+      [state]="{ data: contact, filter: genderFilter }"
       [ngStyle]="{
         display: 'flex',
         gap: '1rem',

@@ -16,6 +16,7 @@ export class ContactDetailPageComponent implements OnInit {
     email: '',
     gender: '',
   };
+  prevFilter: string = 'all';
 
   constructor(private route: ActivatedRoute) {}
 
@@ -29,6 +30,10 @@ export class ContactDetailPageComponent implements OnInit {
     // Vamos a leer el state del contacto
     if (history.state.data) {
       this.contact = history.state.data;
+    }
+
+    if (history.state.filter) {
+      this.prevFilter = history.state.filter;
     }
   }
 }
