@@ -2,8 +2,17 @@
 
 <!-- List your contacts and navegate across them -->
 <div *ngFor="let contact of contactsList; let i = index">
-  <div routerLink="/contacts/{{ contact.id }}" [state]="{ data: contact }">
-    <h2>{{ contact.name }}</h2>
+  <div
+    routerLink="/contacts/{{ contact.id }}"
+    [state]="{ data: contact }"
+    [ngStyle]="{
+      display: 'flex',
+      gap: '1rem',
+      justifyItems: 'center',
+      alignItems: 'flex-end'
+    }"
+  >
+    <h2 class="contact-name">{{ contact.name }}</h2>
     <button (click)="comeBackHome(contact)">Select contact</button>
   </div>
 </div>
