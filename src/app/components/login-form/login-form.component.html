@@ -30,8 +30,11 @@
           type="password"
           placeholder="Password"
         />
+        <mat-error *ngIf="password?.errors?.['required'] && password?.touched">
+          Password is required
+        </mat-error>
       </mat-form-field>
-      <button mat-raised-button color="primary">Access</button>
+      <button mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid">Access</button>
     </form>
   </mat-card-content>
 </mat-card>
