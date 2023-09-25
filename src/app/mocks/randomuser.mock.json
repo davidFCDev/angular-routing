@@ -1,0 +1,66 @@
+{
+  "results": [
+    {
+      "gender": "female",
+      "name": {
+        "title": "Mrs",
+        "first": "Pavitra",
+        "last": "Gugale"
+      },
+      "location": {
+        "street": {
+          "number": 9823,
+          "name": "Kasturba Rd"
+        },
+        "city": "Mango",
+        "state": "Delhi",
+        "country": "India",
+        "postcode": 95559,
+        "coordinates": {
+          "latitude": "4.3035",
+          "longitude": "130.3244"
+        },
+        "timezone": {
+          "offset": "+7:00",
+          "description": "Bangkok, Hanoi, Jakarta"
+        }
+      },
+      "email": "pavitra.gugale@example.com",
+      "login": {
+        "uuid": "859df694-ff8b-4eb4-b8c2-7dc46ff57b6d",
+        "username": "blackladybug867",
+        "password": "seinfeld",
+        "salt": "8FQ6RpCF",
+        "md5": "84db2f413ac524d3548ea9625eac95f0",
+        "sha1": "6b3c5d27bccec81184f43e946ba5752413af7869",
+        "sha256": "000300ad57e8c8551ab35d44f948517a4cadb73415eb6d305ee28607686d39d4"
+      },
+      "dob": {
+        "date": "1990-01-03T07:32:23.810Z",
+        "age": 33
+      },
+      "registered": {
+        "date": "2007-08-09T16:23:32.244Z",
+        "age": 16
+      },
+      "phone": "9934648201",
+      "cell": "9490314726",
+      "id": {
+        "name": "UIDAI",
+        "value": "532296926625"
+      },
+      "picture": {
+        "large": "https://randomuser.me/api/portraits/women/40.jpg",
+        "medium": "https://randomuser.me/api/portraits/med/women/40.jpg",
+        "thumbnail": "https://randomuser.me/api/portraits/thumb/women/40.jpg"
+      },
+      "nat": "IN"
+    }
+  ],
+  "info": {
+    "seed": "371c265e272c1e7d",
+    "results": 1,
+    "page": 1,
+    "version": "1.4"
+  }
+}

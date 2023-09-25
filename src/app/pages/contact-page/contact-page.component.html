@@ -1,4 +1,3 @@
-<h1>Your contacts:</h1>
 
 <!-- List your contacts and navegate across them -->
 <div>
@@ -24,7 +23,7 @@
       </p>
     </ng-container>
     <ng-template #genderTemplate>
-      <p>Showing all contacts</p>
+      <p style="color: black;">Showing all contacts</p>
     </ng-template>
 
     <a [routerLink]="['/home']" [queryParams]="{gender: genderFilter}">Return</a>
