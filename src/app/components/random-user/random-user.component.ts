@@ -18,7 +18,7 @@ export class RandomUserComponent implements OnInit {
   ngOnInit() {
     this.randomUserService.getRandomContact().subscribe((response: Results) => {
       this.randomContact = response.results[0];
-      console.table(this.randomContact.name);
+      console.table(this.randomContact);
     });
   }
 

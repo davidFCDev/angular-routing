@@ -1,1 +1,9 @@
-<p>random-user works!</p>
+<div *ngIf="randomContact" class="contact-card">
+  <h2>{{ randomContact.name.first }} {{ randomContact.name.last }}</h2>
+  <img [src]="randomContact.picture.large" alt="random contact" />
+  <div class="contact-text">
+    <p><strong>Email:</strong> {{ randomContact.email }}</p>
+    <p><strong>Phone:</strong> {{ randomContact.phone }}</p>
+    <p><strong>From:</strong> {{ randomContact.location.city }}</p>
+  </div>
+</div>
