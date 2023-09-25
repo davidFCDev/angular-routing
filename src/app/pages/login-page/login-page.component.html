@@ -1,8 +1,2 @@
-<h1>Login page</h1>
 
-<!-- Login Form -->
-<!-- <input [(ngModel)]="email" type="email" placeholder="Email" />
-<input [(ngModel)]="password" type="password" placeholder="Password" />
-
-<button (click)="loginUser()">Access</button> -->
-<app-login-form></app-login-form>
+<app-login-form (loginAction)="loginUser($event)"></app-login-form>

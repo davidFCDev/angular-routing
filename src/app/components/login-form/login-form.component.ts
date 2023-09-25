@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
 
@@ -11,12 +11,14 @@ export class LoginFormComponent implements OnInit {
 
   // Inicializamos vacío el FormGroup
   loginForm: FormGroup = new FormGroup({});
+  @Output() loginAction: EventEmitter<{}> = new EventEmitter<{}>();
 
   // Inyectamos el FormBuilder en el constructor
-  constructor(private formBuilder: FormBuilder, private authService: AuthService) {}
+  constructor(
+    private formBuilder: FormBuilder,
+  ) {}
 
   ngOnInit() {
-
     this.loginForm = this.formBuilder.group({
       email: ['', Validators.compose([Validators.required, Validators.email])],
       password: ['', Validators.required],
@@ -34,9 +36,9 @@ export class LoginFormComponent implements OnInit {
 
   // Creamos el método onSubmit para enviar el formulario
   onSubmit() {
-    if(this.loginForm.valid){
+    if (this.loginForm.valid) {
       console.log(this.loginForm.value);
-      // TODO petición al servidor
+      this.loginAction.emit(this.loginForm.value);
       this.loginForm.reset();
     }
   }
