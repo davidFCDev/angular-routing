@@ -2,7 +2,7 @@
 
 <div class="card">
   <ng-container *ngIf="contact.email; else elseTemplate">
-    <h2>Name - {{ contact.name }} {{ contact.surname }}</h2>
+    <h2>Name - {{ contact | completedName }}</h2>
     <h3>
       Email - <a href="#">{{ contact.email }}</a>
     </h3>
