@@ -1,0 +1,36 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+mat-card {
+  width: 400px;
+  margin: 2em auto;
+  text-align: center;
+  background-color: rgb(254, 254, 254);
+  border-radius: 10px;
+}
+
+mat-card-header {
+  display: unset;
+}
+
+mat-card-content{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+mat-form-field {
+  display: block;
+  min-width: 300px;
+  width: 100%;
+}
+
+button {
+  width: 100%;
+}
