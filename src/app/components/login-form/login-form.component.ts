@@ -39,7 +39,7 @@ export class LoginFormComponent implements OnInit {
     if (this.loginForm.valid) {
       console.log(this.loginForm.value);
       this.loginAction.emit(this.loginForm.value);
-      this.loginForm.reset();
+      // this.loginForm.reset();
     }
   }
 }

@@ -1,3 +1,18 @@
-body {
-  background-color: rgb(17, 30, 61);
+:root {
+  background-color: rgb(154, 174, 220);
+}
+
+button {
+  background-color: rgb(224, 233, 255);
+  box-shadow : 0px 0px 4px 0px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  border: none;
+  padding: 0.5em 1em;
+  font-size: 1.2em;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: rgb(255, 255, 255);
 }
