@@ -19,4 +19,10 @@ export class RandomContactPageComponent implements OnInit {
       this.contact = response.results[0];
     });
   }
+
+  getRandomContact(): void {
+    this.randomUserService.getRandomContact().subscribe((response: Results) => {
+      this.contact = response.results[0];
+    });
+  }
 }

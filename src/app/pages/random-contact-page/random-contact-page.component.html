@@ -1,1 +1,7 @@
 <app-random-user [randomContact]="contact"></app-random-user>
+
+<div [ngStyle]="{display:'flex', flexDirection:'column', gap:'15px'}">
+  <button mat-raised-button color="primary" (click)="getRandomContact()">
+    Get Random Contact
+  </button>
+</div>

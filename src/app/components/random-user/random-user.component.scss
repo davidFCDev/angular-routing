@@ -1,5 +1,7 @@
 .random-contact-card {
   max-width: 400px;
+  display: flex;
+  flex-direction: column;
 }
 
 .random-page {
@@ -11,17 +13,35 @@
 mat-card {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
-  padding: 1rem;
+
+
 }
 
 mat-card-header {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5rem;
+  flex-direction: row;
+  gap: 0.33rem;
+  align-items: flex-start;
+}
+
+mat-card-header img {
+  width: 55px;
+  height: 55px;
 }
 
 mat-card-title {
   font-size: 1.8rem;
+  color:darkblue
+}
+
+mat-card-actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.5rem;
+}
+
+.content {
+  padding: 0.5rem;
 }
