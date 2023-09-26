@@ -23,6 +23,7 @@ export class RandomContactPageComponent implements OnInit {
   getRandomContact(): void {
     this.randomUserService.getRandomContact().subscribe((response: Results) => {
       this.contact = response.results[0];
+      console.log(this.contact);
     });
   }
 }

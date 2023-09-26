@@ -13,11 +13,19 @@
       </mat-card-header>
       <div class="content">
         <mat-card-content>
+          <p><strong>Age:</strong> {{ randomContact.dob.age }}</p>
           <p>
-            Adress:
+            <strong>Phone:</strong> {{ randomContact.phone }}
+            <br />
+            <strong>Cell:</strong> {{ randomContact.cell }}
+          </p>
+
+          <p>
+            <strong>Adress:</strong>
             {{ randomContact.location.street.number }}
             {{ randomContact.location.street.name }}
           </p>
+          <br />
         </mat-card-content>
         <mat-card-actions>
           <button mat-button>Add Friend</button>
