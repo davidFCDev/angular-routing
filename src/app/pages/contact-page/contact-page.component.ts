@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { IContact } from 'src/app/models/contact.interface';
+import { IRandomContact, Results } from 'src/app/models/randomuser';
 import { ContactService } from 'src/app/services/contact.service';
+import { RandomUserService } from 'src/app/services/random-user.service';
 
 @Component({
   selector: 'app-contact-page',
@@ -11,11 +13,13 @@ import { ContactService } from 'src/app/services/contact.service';
 export class ContactPageComponent implements OnInit {
   genderFilter: string = 'all'; // Variable para filtrar por género
   contactsList: IContact[] = []; // Lista de contactos
+  randomContactsList: IRandomContact[] = []; // Lista de contactos aleatorios
 
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private contactService: ContactService
+    private contactService: ContactService,
+    private randomUserService: RandomUserService
   ) {}
 
   ngOnInit(): void {
@@ -33,6 +37,18 @@ export class ContactPageComponent implements OnInit {
       ?.then((list) => (this.contactsList = list))
       .catch((error) => console.log(error))
       .finally(() => console.log('Promise completed'));
+
+    // Implementacion para obtener la lista de contactos aleatorios
+    this.randomUserService.getRandomContacts(10).subscribe({
+      next: (response: Results[]) => {
+        response.forEach((result: Results, index: number ) => {
+          this.randomContactsList.push(result.results[index]);
+        });
+        console.log(this.randomContactsList);
+      },
+      error: (error) => console.error(error),
+      complete: () => console.log('Completed!'),
+    });
   }
 
   // Ejemplo de paso de informacion entre componentes a través del Estado

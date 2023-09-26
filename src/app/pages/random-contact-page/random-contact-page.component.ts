@@ -13,9 +13,7 @@ export class RandomContactPageComponent implements OnInit {
   constructor(private randomUserService: RandomUserService) {}
 
   ngOnInit(): void {
-    this.randomUserService.getRandomContact().subscribe((response: Results) => {
-      this.contact = response.results[0];
-    });
+
   }
 
   getRandomContact() {

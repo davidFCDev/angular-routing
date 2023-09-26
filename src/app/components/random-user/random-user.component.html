@@ -1,6 +1,6 @@
 
 <main class="random-page">
-  <ng-container *ngIf="randomContact; else noContact">
+  <ng-container *ngIf="randomContact">
     <mat-card *ngIf="randomContact" class="random-contact-card">
       <mat-card-header>
         <img mat-card-avatar [src]="randomContact.picture.large" />
@@ -33,7 +33,5 @@
       </div>
     </mat-card>
   </ng-container>
-  <ng-template #noContact>
-    <mat-spinner></mat-spinner>
-  </ng-template>
+
 </main>
