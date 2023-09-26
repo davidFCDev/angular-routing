@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
-import { RandomUserService } from '../../services/random-user.service';
-import { IRandomContact, Results } from 'src/app/models/randomuser';
+import { IRandomContact } from 'src/app/models/randomuser';
 
 @Component({
   selector: 'app-random-user',
@@ -10,16 +9,12 @@ import { IRandomContact, Results } from 'src/app/models/randomuser';
 })
 export class RandomUserComponent implements OnInit {
 
-  randomResults: Results | undefined;
-  randomContact: IRandomContact | undefined;
+  @Input() randomContact: IRandomContact | undefined;
 
-  constructor(private randomUserService: RandomUserService) { }
+  constructor() { }
 
   ngOnInit() {
-    this.randomUserService.getRandomContact().subscribe((response: Results) => {
-      this.randomContact = response.results[0];
-      console.table(this.randomContact);
-    });
+
   }
 
 }
