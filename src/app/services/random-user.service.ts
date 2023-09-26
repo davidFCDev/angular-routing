@@ -1,6 +1,10 @@
 import { Injectable } from '@angular/core';
 
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import {
+  HttpClient,
+  HttpErrorResponse,
+  HttpParams,
+} from '@angular/common/http';
 import { Observable, catchError, retry, throwError } from 'rxjs';
 import { IRandomContact } from '../models/randomuser';
 
@@ -29,9 +33,19 @@ export class RandomUserService {
       .pipe(retry(2), catchError(this.handleError));
   }
 
-  getRandomContacts(): Observable<IRandomContact[]> {
-    return this.http.get<IRandomContact[]>(
-      'https://randomuser.me/api/?results=10'
-    );
+  getRandomContacts(n: number): Observable<any> {
+    const options: HttpParams = new HttpParams().set('results', n);
+
+    return this.http
+      .get('https://randomuser.me/api', { params: options })
+      .pipe(retry(2), catchError(this.handleError));
+  }
+
+  getRandomContactsByGender(gender: string): Observable<any> {
+    const options: HttpParams = new HttpParams().set('gender', gender);
+
+    return this.http
+      .get('https://randomuser.me/api', { params: options })
+      .pipe(retry(2), catchError(this.handleError));
   }
 }

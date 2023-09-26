@@ -18,17 +18,20 @@ export class RandomContactPageComponent implements OnInit {
     });
   }
 
-  getRandomContact(): void {
-    this.randomUserService.getRandomContact().subscribe(
-      (response: Results) => {
-        this.contact = response.results[0];
-      },
-      (error) => console.error(error)
-    );
-
+  getRandomContact() {
     this.randomUserService.getRandomContact().subscribe({
       next: (response: Results) => {
         this.contact = response.results[0];
+      },
+      error: (error) => console.error(error),
+      complete: () => console.log('Completed!'),
+    });
+  }
+
+  getContactsList(n: number) {
+    this.randomUserService.getRandomContacts(n).subscribe({
+      next: (response: Results[]) => {
+        console.log(response);
       },
       error: (error) => console.error(error),
       complete: () => console.log('Completed!'),
