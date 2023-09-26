@@ -12,13 +12,11 @@ import { RandomUserService } from 'src/app/services/random-user.service';
 })
 export class ContactPageComponent implements OnInit {
   genderFilter: string = 'all'; // Variable para filtrar por género
-  contactsList: IContact[] = []; // Lista de contactos
   randomContactsList: IRandomContact[] = []; // Lista de contactos aleatorios
 
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private contactService: ContactService,
     private randomUserService: RandomUserService
   ) {}
 
@@ -29,31 +27,26 @@ export class ContactPageComponent implements OnInit {
       if (params.gender) {
         this.genderFilter = params.gender;
       }
-    });
 
-    // Obtenemos la lista de contactos
-    this.contactService
-      .getContacts(this.genderFilter)
-      ?.then((list) => (this.contactsList = list))
-      .catch((error) => console.log(error))
-      .finally(() => console.log('Promise completed'));
-
-    // Implementacion para obtener la lista de contactos aleatorios
-    this.randomUserService.getRandomContacts(10).subscribe({
-      next: (response: Results) => {
-        response.results.forEach((randomContact: IRandomContact, index: number ) => {
-          this.randomContactsList.push(randomContact);
-        });
-        console.log(this.randomContactsList);
-      },
-      error: (error) => console.error(error),
-      complete: () => console.log('Completed!'),
+      // Implementacion para obtener la lista de contactos aleatorios
+      this.randomUserService.getRandomContacts(10).subscribe({
+        next: (response: Results) => {
+          response.results.forEach(
+            (randomContact: IRandomContact, index: number) => {
+              this.randomContactsList.push(randomContact);
+            }
+          );
+          console.log(this.randomContactsList);
+        },
+        error: (error) => console.error(error),
+        complete: () => console.log('Completed!'),
+      });
     });
   }
 
   // Ejemplo de paso de informacion entre componentes a través del Estado
 
-  comeBackHome(contact: IContact) {
+  comeBackHome(contact: IRandomContact) {
     let navigationExtras = {
       state: {
         data: contact,

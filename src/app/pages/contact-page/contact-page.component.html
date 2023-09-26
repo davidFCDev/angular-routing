@@ -1,13 +1,13 @@
 
 <!-- List your contacts and navegate across them -->
 <div>
-  <div class="list-card" *ngFor="let contact of contactsList; let i = index">
+  <div class="list-card" *ngFor="let contact of randomContactsList; let i = index">
     <div
-      routerLink="/contacts/{{ contact.id }}"
+      routerLink="/contacts/{{ contact.id.name }}"
       [state]="{ data: contact, filter: genderFilter }"
       class="contact-card"
     >
-      <h2 class="contact-name">{{ contact | completedName }}</h2>
+      <h2 class="contact-name">{{ contact.name.first }} {{ contact.name.last }}</h2>
       <button (click)="comeBackHome(contact)">Select</button>
     </div>
   </div>
