@@ -2,17 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import { RandomUserService } from '../../services/random-user.service';
 import { IRandomContact, Results } from 'src/app/models/randomuser';
 
-
 @Component({
   selector: 'app-random-contact-page',
   templateUrl: './random-contact-page.component.html',
   styleUrls: ['./random-contact-page.component.scss'],
 })
 export class RandomContactPageComponent implements OnInit {
-
   contact: IRandomContact | undefined;
 
-  constructor(private randomUserService: RandomUserService) { }
+  constructor(private randomUserService: RandomUserService) {}
 
   ngOnInit(): void {
     this.randomUserService.getRandomContact().subscribe((response: Results) => {
@@ -21,9 +19,19 @@ export class RandomContactPageComponent implements OnInit {
   }
 
   getRandomContact(): void {
-    this.randomUserService.getRandomContact().subscribe((response: Results) => {
-      this.contact = response.results[0];
-      console.log(this.contact);
+    this.randomUserService.getRandomContact().subscribe(
+      (response: Results) => {
+        this.contact = response.results[0];
+      },
+      (error) => console.error(error)
+    );
+
+    this.randomUserService.getRandomContact().subscribe({
+      next: (response: Results) => {
+        this.contact = response.results[0];
+      },
+      error: (error) => console.error(error),
+      complete: () => console.log('Completed!'),
     });
   }
 }
