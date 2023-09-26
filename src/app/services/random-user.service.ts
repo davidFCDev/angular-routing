@@ -6,7 +6,7 @@ import {
   HttpParams,
 } from '@angular/common/http';
 import { Observable, catchError, retry, throwError } from 'rxjs';
-import { IRandomContact } from '../models/randomuser';
+import { Results } from '../models/randomuser';
 
 @Injectable({
   providedIn: 'root',
@@ -27,25 +27,25 @@ export class RandomUserService {
     );
   }
 
-  getRandomContact(): Observable<any> {
+  getRandomContact(): Observable<Results> {
     return this.http
-      .get('https://randomuser.me/api')
+      .get<Results>('https://randomuser.me/api')
       .pipe(retry(2), catchError(this.handleError));
   }
 
-  getRandomContacts(n: number): Observable<any> {
+  getRandomContacts(n: number): Observable<Results> {
     const options: HttpParams = new HttpParams().set('results', n);
 
     return this.http
-      .get('https://randomuser.me/api', { params: options })
+      .get<Results>('https://randomuser.me/api', { params: options })
       .pipe(retry(2), catchError(this.handleError));
   }
 
-  getRandomContactsByGender(gender: string): Observable<any> {
+  getRandomContactsByGender(gender: string): Observable<Results> {
     const options: HttpParams = new HttpParams().set('gender', gender);
 
     return this.http
-      .get('https://randomuser.me/api', { params: options })
+      .get<Results>('https://randomuser.me/api', { params: options })
       .pipe(retry(2), catchError(this.handleError));
   }
 }

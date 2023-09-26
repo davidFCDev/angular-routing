@@ -40,9 +40,9 @@ export class ContactPageComponent implements OnInit {
 
     // Implementacion para obtener la lista de contactos aleatorios
     this.randomUserService.getRandomContacts(10).subscribe({
-      next: (response: Results[]) => {
-        response.forEach((result: Results, index: number ) => {
-          this.randomContactsList.push(result.results[index]);
+      next: (response: Results) => {
+        response.results.forEach((randomContact: IRandomContact, index: number ) => {
+          this.randomContactsList.push(randomContact);
         });
         console.log(this.randomContactsList);
       },
