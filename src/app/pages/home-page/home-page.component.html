@@ -19,9 +19,8 @@
     alignItems: 'center'
   }"
 >
-  <a *ngIf="!token" routerLink="/login">Login</a>
 
-  <button (click)="navigateToContacts()">Check all contacts</button>
+  <button mat-raised-button color="primary" (click)="navigateToContacts()">Check all contacts</button>
 
   <div [ngStyle]="{ display: 'flex', gap: '1rem' }">
     <a [routerLink]="['/contacts']" [queryParams]="{ gender: 'male' }"
