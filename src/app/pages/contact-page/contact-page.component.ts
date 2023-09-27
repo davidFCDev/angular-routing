@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { IContact } from 'src/app/models/contact.interface';
 import { IRandomContact, Results } from 'src/app/models/randomuser';
-import { ContactService } from 'src/app/services/contact.service';
 import { RandomUserService } from 'src/app/services/random-user.service';
 
 @Component({
@@ -26,21 +24,35 @@ export class ContactPageComponent implements OnInit {
       console.log('Query params: ', params.gender);
       if (params.gender) {
         this.genderFilter = params.gender;
-      }
 
-      // Implementacion para obtener la lista de contactos aleatorios
-      this.randomUserService.getRandomContacts(10).subscribe({
-        next: (response: Results) => {
-          response.results.forEach(
-            (randomContact: IRandomContact, index: number) => {
-              this.randomContactsList.push(randomContact);
-            }
-          );
-          console.log(this.randomContactsList);
-        },
-        error: (error) => console.error(error),
-        complete: () => console.log('Completed!'),
-      });
+        if (params.gender === 'female' || params.gender === 'male') {
+          this.randomUserService.getRandomContactsByGender(10, params.gender).subscribe({
+            next: (response: Results) => {
+              response.results.forEach(
+                (randomContact: IRandomContact, index: number) => {
+                  this.randomContactsList.push(randomContact);
+                }
+              );
+              console.log(this.randomContactsList);
+            },
+            error: (error) => console.error(error),
+            complete: () => console.log('Completed!'),
+          });
+        } else {
+          this.randomUserService.getRandomContacts(10).subscribe({
+            next: (response: Results) => {
+              response.results.forEach(
+                (randomContact: IRandomContact, index: number) => {
+                  this.randomContactsList.push(randomContact);
+                }
+              );
+              console.log(this.randomContactsList);
+            },
+            error: (error) => console.error(error),
+            complete: () => console.log('Completed!'),
+          });
+        }
+      }
     });
   }
 
