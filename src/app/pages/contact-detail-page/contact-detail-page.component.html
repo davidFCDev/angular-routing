@@ -1,7 +1,7 @@
-<h1 [ngStyle]="{ textAlign: 'center' }">Contact({{ contact.id }}):</h1>
+<h1  *ngIf="contact" [ngStyle]="{ textAlign: 'center' }">Contact({{ contact.id.value }}):</h1>
 
 <div class="card">
-  <ng-container *ngIf="contact.email; else elseTemplate">
+  <ng-container *ngIf="contact; else elseTemplate">
     <h2>Name - {{ contact | completedName }}</h2>
     <h3>
       Email - <a href="#">{{ contact.email }}</a>
