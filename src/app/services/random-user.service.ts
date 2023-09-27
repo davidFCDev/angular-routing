@@ -34,10 +34,10 @@ export class RandomUserService {
   }
 
   getRandomContacts(n: number, gender?: string): Observable<Results> {
-    const options: HttpParams = new HttpParams().set('results', n);
+    let options: HttpParams = new HttpParams().set('results', n);
 
     if (gender) {
-      options.append('gender', gender);
+      options = options.append("gender", gender);
     }
 
     return this.http
