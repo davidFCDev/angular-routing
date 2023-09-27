@@ -26,7 +26,7 @@ export class ContactPageComponent implements OnInit {
         this.genderFilter = params.gender;
 
         if (params.gender === 'female' || params.gender === 'male') {
-          this.randomUserService.getRandomContactsByGender(10, params.gender).subscribe({
+          this.randomUserService.getRandomContacts(10, params.gender).subscribe({
             next: (response: Results) => {
               response.results.forEach(
                 (randomContact: IRandomContact, index: number) => {

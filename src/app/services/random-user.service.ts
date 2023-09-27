@@ -37,7 +37,7 @@ export class RandomUserService {
     const options: HttpParams = new HttpParams().set('results', n);
 
     if (gender) {
-      options.set('gender', gender);
+      options.append('gender', gender);
     }
 
     return this.http
