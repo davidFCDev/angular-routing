@@ -21,28 +21,30 @@ const routes: Routes = [
   },
   {
     path: 'dashboard',
-    component:DashboardComponent,
+    component: DashboardComponent,
     canActivate: [AuthGuard],
-  },
-  {
-    path: 'home',
-    component: HomePageComponent,
-    canActivate: [AuthGuard],
-  },
-  {
-    path: 'contacts',
-    component: ContactPageComponent,
-    canActivate: [AuthGuard],
-  },
-  {
-    path: 'contacts/:id',
-    component: ContactDetailPageComponent,
-    canActivate: [AuthGuard],
-  },
-  {
-    path: 'random',
-    component: RandomContactPageComponent,
-    canActivate: [AuthGuard],
+    children: [
+      {
+        path: 'home',
+        component: HomePageComponent,
+        canActivate: [AuthGuard],
+      },
+      {
+        path: 'contacts',
+        component: ContactPageComponent,
+        canActivate: [AuthGuard],
+      },
+      {
+        path: 'contacts/:id',
+        component: ContactDetailPageComponent,
+        canActivate: [AuthGuard],
+      },
+      {
+        path: 'random',
+        component: RandomContactPageComponent,
+        canActivate: [AuthGuard],
+      },
+    ],
   },
   {
     path: '**',
