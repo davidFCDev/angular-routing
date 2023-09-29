@@ -16,6 +16,12 @@ import { LoginFormComponent } from './components/login-form/login-form.component
 import { CompletedNamePipe } from './pipes/completed-name.pipe';
 import { RandomUserComponent } from './components/random-user/random-user.component';
 import { RandomContactPageComponent } from './pages/random-contact-page/random-contact-page.component';
+import { NavComponent } from './components/nav/nav.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
 
 @NgModule({
   declarations: [
@@ -29,6 +35,7 @@ import { RandomContactPageComponent } from './pages/random-contact-page/random-c
     CompletedNamePipe,
     RandomUserComponent,
     RandomContactPageComponent,
+    NavComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,7 +44,12 @@ import { RandomContactPageComponent } from './pages/random-contact-page/random-c
     HttpClientModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    MaterialModule
+    MaterialModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
