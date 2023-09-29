@@ -65,6 +65,6 @@ export class ContactPageComponent implements OnInit {
       },
     };
 
-    this.router.navigate(['/home'], navigationExtras);
+    this.router.navigate(['/dashboard'], navigationExtras);
   }
 }
