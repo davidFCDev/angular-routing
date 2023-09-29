@@ -7,6 +7,7 @@ import { ContactDetailPageComponent } from './pages/contact-detail-page/contact-
 import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
 import { AuthGuard } from './guards/auth.guard';
 import { RandomContactPageComponent } from './pages/random-contact-page/random-contact-page.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 const routes: Routes = [
   {
@@ -17,6 +18,10 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginPageComponent,
+  },
+  {
+    path: 'dashboard',
+    component:DashboardComponent,
   },
   {
     path: 'home',
