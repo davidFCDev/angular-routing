@@ -1,9 +1,9 @@
 
 <!-- List your contacts and navegate across them -->
-<div>
+<div class="contact-page">
   <div class="list-card" *ngFor="let contact of randomContactsList; let i = index">
     <div
-      routerLink="/contacts/{{ contact.id.name }}"
+      routerLink="/dashboard/contacts/{{ contact.id.name }}"
       [state]="{ data: contact, filter: genderFilter }"
       class="contact-card"
     >
@@ -26,6 +26,6 @@
       <p style="color: black;">Showing all contacts</p>
     </ng-template>
 
-    <a [routerLink]="['/home']" [queryParams]="{gender: genderFilter}">Return</a>
+    <a [routerLink]="['/dashboard']" [queryParams]="{gender: genderFilter}">Return</a>
   </div>
 </div>

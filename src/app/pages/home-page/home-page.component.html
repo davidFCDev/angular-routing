@@ -1,33 +1,39 @@
+<div class="home-page">
+  <h1>Welcome!</h1>
 
-<h1>Welcome!</h1>
+  <ng-container *ngIf="selectedContact; else templateName">
+    <h4>Your invisible friend is {{ selectedContact | completedName }} !!</h4>
+  </ng-container>
+  <ng-template #templateName>
+    <div>
+      <h4>Who is your invisible friend?</h4>
+    </div>
+  </ng-template>
 
-<ng-container *ngIf="selectedContact; else templateName">
-  <h4>Your invisible friend is {{ selectedContact | completedName }} !!</h4>
-</ng-container>
-<ng-template #templateName>
-  <div>
-    <h4>Who is your invisible friend?</h4>
-  </div>
-</ng-template>
+  <!-- Hacer un login -->
+  <div
+    [ngStyle]="{
+      display: 'flex',
+      gap: '1rem',
+      justifyItems: 'center',
+      alignItems: 'center'
+    }"
+  >
+    <button mat-raised-button color="primary" (click)="navigateToContacts()">
+      Check all contacts
+    </button>
 
-<!-- Hacer un login -->
-<div
-  [ngStyle]="{
-    display: 'flex',
-    gap: '1rem',
-    justifyItems: 'center',
-    alignItems: 'center'
-  }"
->
-
-  <button mat-raised-button color="primary" (click)="navigateToContacts()">Check all contacts</button>
-
-  <div [ngStyle]="{ display: 'flex', gap: '1rem' }">
-    <a [routerLink]="['/contacts']" [queryParams]="{ gender: 'male' }"
-      >Males</a
-    >
-    <a [routerLink]="['/contacts']" [queryParams]="{ gender: 'female' }"
-      >Females</a
-    >
+    <div [ngStyle]="{ display: 'flex', gap: '1rem' }">
+      <a
+        [routerLink]="['/dashboard/contacts']"
+        [queryParams]="{ gender: 'male' }"
+        >Males</a
+      >
+      <a
+        [routerLink]="['/dashboard/contacts']"
+        [queryParams]="{ gender: 'female' }"
+        >Females</a
+      >
+    </div>
   </div>
 </div>
