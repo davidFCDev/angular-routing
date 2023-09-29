@@ -1,14 +1,17 @@
 
 <!-- List your contacts and navegate across them -->
 <div class="contact-page">
-  <div class="list-card" *ngFor="let contact of randomContactsList; let i = index">
-    <div
-      routerLink="/dashboard/contacts/{{ contact.id.name }}"
-      [state]="{ data: contact, filter: genderFilter }"
-      class="contact-card"
-    >
-      <h2 class="contact-name">{{ contact | completedName }}</h2>
-      <button mat-raised-button color="primary" (click)="comeBackHome(contact)">Select</button>
+  <div class="contact-list">
+
+    <div  *ngFor="let contact of randomContactsList; let i = index">
+      <div
+        routerLink="/dashboard/contacts/{{ contact.id.name }}"
+        [state]="{ data: contact, filter: genderFilter }"
+        class="contact-card"
+      >
+        <h2 class="contact-name">{{ contact | completedName }}</h2>
+        <button mat-raised-button color="primary" (click)="comeBackHome(contact)">Select</button>
+      </div>
     </div>
   </div>
   <div class="contact-text">
@@ -23,7 +26,7 @@
       </p>
     </ng-container>
     <ng-template #genderTemplate>
-      <p style="color: black;">Showing all contacts</p>
+      <p>Showing all contacts</p>
     </ng-template>
 
     <a [routerLink]="['/dashboard']" [queryParams]="{gender: genderFilter}">Return</a>
