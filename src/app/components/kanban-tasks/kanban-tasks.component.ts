@@ -1,35 +1,46 @@
 import { Component } from '@angular/core';
-import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
+import {
+  CdkDragDrop,
+  moveItemInArray,
+  transferArrayItem,
+} from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-kanban-tasks',
   templateUrl: './kanban-tasks.component.html',
-  styleUrls: ['./kanban-tasks.component.scss']
+  styleUrls: ['./kanban-tasks.component.scss'],
 })
 export class KanbanTasksComponent {
   todo = [
-    'Get to work',
-    'Pick up groceries',
-    'Go home',
-    'Fall asleep'
+    'Aprender typescript',
+    'Aprender angular',
+    'Aprender nodejs',
+    'Aprender mongodb',
+    'Aprender javascript',
   ];
 
   done = [
-    'Get up',
-    'Brush teeth',
-    'Take a shower',
-    'Check e-mail',
-    'Walk dog'
+    'Aprender html',
+    'Aprender css',
+    'Aprender sass',
+    'Aprender less',
+    'Aprender stylus',
   ];
 
   drop(event: CdkDragDrop<string[]>): void {
     if (event.previousContainer === event.container) {
-      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+      moveItemInArray(
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex
+      );
     } else {
-      transferArrayItem(event.previousContainer.data,
-          event.container.data,
-          event.previousIndex,
-          event.currentIndex);
+      transferArrayItem(
+        event.previousContainer.data,
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex
+      );
     }
   }
 }
