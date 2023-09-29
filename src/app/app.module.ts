@@ -23,6 +23,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { TasksPageComponent } from './pages/tasks-page/tasks-page.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
     RandomContactPageComponent,
     NavComponent,
     DashboardComponent,
+    TasksPageComponent,
   ],
   imports: [
     BrowserModule,
