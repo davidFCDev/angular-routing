@@ -9,6 +9,8 @@ import { RandomUserService } from 'src/app/services/random-user.service';
   styleUrls: ['./contact-page.component.scss'],
 })
 export class ContactPageComponent implements OnInit {
+
+  loading: boolean = true; // Variable para mostrar el spinner
   genderFilter: string = 'all'; // Variable para filtrar por género
   randomContactsList: IRandomContact[] = []; // Lista de contactos aleatorios
 
@@ -47,6 +49,7 @@ export class ContactPageComponent implements OnInit {
                 }
               );
               console.log(this.randomContactsList);
+              this.loading = false;
             },
             error: (error) => console.error(error),
             complete: () => console.log('Completed!'),

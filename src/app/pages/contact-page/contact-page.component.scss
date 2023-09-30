@@ -17,7 +17,11 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
+}
 
+.contact-card:hover {
+  color: #4f75c6;
+  cursor: pointer;
 }
 
 .contact-text {
