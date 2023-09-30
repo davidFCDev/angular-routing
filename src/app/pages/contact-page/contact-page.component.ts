@@ -9,7 +9,6 @@ import { RandomUserService } from 'src/app/services/random-user.service';
   styleUrls: ['./contact-page.component.scss'],
 })
 export class ContactPageComponent implements OnInit {
-
   loading: boolean = true; // Variable para mostrar el spinner
   genderFilter: string = 'all'; // Variable para filtrar por género
   randomContactsList: IRandomContact[] = []; // Lista de contactos aleatorios
@@ -28,18 +27,23 @@ export class ContactPageComponent implements OnInit {
         this.genderFilter = params.gender;
 
         if (params.gender === 'female' || params.gender === 'male') {
-          this.randomUserService.getRandomContacts(10, params.gender).subscribe({
-            next: (response: Results) => {
-              response.results.forEach(
-                (randomContact: IRandomContact, index: number) => {
-                  this.randomContactsList.push(randomContact);
-                }
-              );
-              console.log(this.randomContactsList);
-            },
-            error: (error) => console.error(error),
-            complete: () => console.log('Completed!'),
-          });
+          this.randomUserService
+            .getRandomContacts(10, params.gender)
+            .subscribe({
+              next: (response: Results) => {
+                response.results.forEach(
+                  (randomContact: IRandomContact, index: number) => {
+                    this.randomContactsList.push(randomContact);
+                  }
+                );
+                console.log(this.randomContactsList);
+              },
+              error: (error) => console.error(error),
+              complete: () => {
+                console.log('Completed!');
+                this.loading = false;
+              },
+            });
         } else {
           this.randomUserService.getRandomContacts(10).subscribe({
             next: (response: Results) => {
@@ -49,10 +53,12 @@ export class ContactPageComponent implements OnInit {
                 }
               );
               console.log(this.randomContactsList);
-              this.loading = false;
             },
             error: (error) => console.error(error),
-            complete: () => console.log('Completed!'),
+            complete: () => {
+              console.log('Completed!');
+              this.loading = false;
+            },
           });
         }
       }
