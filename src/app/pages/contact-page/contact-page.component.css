@@ -1,0 +1,30 @@
+.contact-page {
+  display: flex;
+  gap: 4rem;
+  height: 100vh;
+  width: 100%;
+}
+
+.contact-list {
+  display: flex-wrap;
+  width: 400px;
+  height: 100vh;
+}
+
+.contact-card {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.contact-card:hover {
+  color: #4f75c6;
+  cursor: pointer;
+}
+
+.contact-text {
+  width: 200px;
+  color: red;
+  font-size: 1.2rem;
+  font-weight: 600;
+}/*# sourceMappingURL=contact-page.component.css.map */
