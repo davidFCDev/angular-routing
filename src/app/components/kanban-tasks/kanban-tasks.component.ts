@@ -45,23 +45,23 @@ export class KanbanTasksComponent {
     },
   ];
 
-  todo = [
-    'Aprender typescript',
-    'Aprender angular',
-    'Aprender nodejs',
-    'Aprender mongodb',
-    'Aprender javascript',
-  ];
+  // todo = [
+  //   'Aprender typescript',
+  //   'Aprender angular',
+  //   'Aprender nodejs',
+  //   'Aprender mongodb',
+  //   'Aprender javascript',
+  // ];
 
-  done = [
-    'Aprender html',
-    'Aprender css',
-    'Aprender sass',
-    'Aprender less',
-    'Aprender stylus',
-  ];
+  // done = [
+  //   'Aprender html',
+  //   'Aprender css',
+  //   'Aprender sass',
+  //   'Aprender less',
+  //   'Aprender stylus',
+  // ];
 
-  drop(event: CdkDragDrop<string[]>): void {
+  drop(event: CdkDragDrop<ITask[]>): void {
     if (event.previousContainer === event.container) {
       moveItemInArray(
         event.container.data,
