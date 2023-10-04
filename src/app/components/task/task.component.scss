@@ -1,0 +1,36 @@
+.task {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 0 2rem;
+}
+
+.task h5 {
+  font-weight: 500;
+  font-size: 1.2rem;
+}
+
+.task h6 {
+  font-weight: 400;
+  font-size: 0.8rem;
+}
+
+.title-task {
+  font-size: 2rem;
+  font-weight: 500;
+  padding: 1rem 2.5rem;
+}
+
+.no-task-completed {
+  font-size: 1.2rem;
+  font-weight: 500;
+  padding: 1rem 2.5rem;
+  color: rgb(255, 20, 20);
+}
+
+.no-task-todo {
+  font-size: 1.2rem;
+  font-weight: 500;
+  padding: 1rem 2.5rem;
+  color: rgb(35, 169, 9);
+}
