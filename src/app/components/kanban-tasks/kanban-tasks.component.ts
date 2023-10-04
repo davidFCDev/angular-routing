@@ -45,6 +45,39 @@ export class KanbanTasksComponent {
     },
   ];
 
+  doneTasks: ITask[] = [
+    {
+      title: 'Aprender html',
+      description: 'Aprender html',
+      completed: true,
+      level: LEVELS.INFO,
+    },
+    {
+      title: 'Aprender css',
+      description: 'Aprender css',
+      completed: true,
+      level: LEVELS.INFO,
+    },
+    {
+      title: 'Aprender sass',
+      description: 'Aprender sass',
+      completed: true,
+      level: LEVELS.INFO,
+    },
+    {
+      title: 'Aprender less',
+      description: 'Aprender less',
+      completed: true,
+      level: LEVELS.INFO,
+    },
+    {
+      title: 'Aprender stylus',
+      description: 'Aprender stylus',
+      completed: true,
+      level: LEVELS.INFO,
+    },
+  ];
+
   // todo = [
   //   'Aprender typescript',
   //   'Aprender angular',

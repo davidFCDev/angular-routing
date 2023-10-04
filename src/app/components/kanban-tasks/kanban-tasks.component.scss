@@ -51,3 +51,19 @@
   opacity: 0;
 }
 
+.task {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 0 2rem;
+}
+
+.task h5 {
+  font-weight: 500;
+  font-size: 1.2rem;
+}
+
+.task h6 {
+  font-weight: 400;
+  font-size: 0.8rem;
+}
