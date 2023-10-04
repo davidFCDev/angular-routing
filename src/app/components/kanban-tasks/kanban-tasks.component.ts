@@ -4,6 +4,7 @@ import {
   moveItemInArray,
   transferArrayItem,
 } from '@angular/cdk/drag-drop';
+import { ITask } from 'src/app/models/task.interface';
 
 @Component({
   selector: 'app-kanban-tasks',

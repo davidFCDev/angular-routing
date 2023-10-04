@@ -1,7 +1,7 @@
 export enum LEVELS {
-  INFO = 'info',
-  URGENT = 'urgent',
-  BLOCKING = 'blocking'
+  'INFO',
+  'URGENT',
+  'BLOCKING',
 }
 
 export interface ITask {
@@ -10,5 +10,3 @@ export interface ITask {
   completed: boolean;
   level: LEVELS;
 }
-
-
