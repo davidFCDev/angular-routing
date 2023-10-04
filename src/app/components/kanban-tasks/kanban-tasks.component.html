@@ -12,7 +12,7 @@
     (cdkDropListDropped)="drop($event)"
   >
     <ng-container *ngIf="todoTasks.length === 0">
-      <h3 class="no-task-todo">No tasks to do</h3>
+      <h3 class="no-task-todo">No tasks to do, you are on fire!</h3>
     </ng-container>
     <div class="list-item" *ngFor="let task of todoTasks" cdkDrag>
       <div class="task">
@@ -37,7 +37,7 @@
     (cdkDropListDropped)="drop($event)"
   >
     <ng-container *ngIf="doneTasks.length === 0" >
-      <h3 class="no-task-done">You should complete your tasks!</h3>
+      <h3 class="no-task-completed">You should complete your tasks!</h3>
     </ng-container>
     <div class="list-item" *ngFor="let task of doneTasks" cdkDrag>
       <div class="task">
