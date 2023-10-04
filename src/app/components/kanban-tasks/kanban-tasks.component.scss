@@ -4,6 +4,7 @@
   margin: 0 20px;
   display: inline-block;
   vertical-align: top;
+
 }
 
 .list {
@@ -66,4 +67,24 @@
 .task h6 {
   font-weight: 400;
   font-size: 0.8rem;
+}
+
+.title-task {
+  font-size: 2rem;
+  font-weight: 500;
+  padding: 1rem 2.5rem;
+}
+
+.no-task-completed {
+  font-size: 1.2rem;
+  font-weight: 500;
+  padding: 1rem 2.5rem;
+  color: rgb(255, 20, 20);
+}
+
+.no-task-todo {
+  font-size: 1.2rem;
+  font-weight: 500;
+  padding: 1rem 2.5rem;
+  color: rgb(20, 255, 63);
 }
