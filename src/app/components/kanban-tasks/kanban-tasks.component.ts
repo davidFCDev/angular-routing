@@ -78,30 +78,18 @@ export class KanbanTasksComponent {
     },
   ];
 
-  // todo = [
-  //   'Aprender typescript',
-  //   'Aprender angular',
-  //   'Aprender nodejs',
-  //   'Aprender mongodb',
-  //   'Aprender javascript',
-  // ];
-
-  // done = [
-  //   'Aprender html',
-  //   'Aprender css',
-  //   'Aprender sass',
-  //   'Aprender less',
-  //   'Aprender stylus',
-  // ];
-
   drop(event: CdkDragDrop<ITask[]>): void {
     if (event.previousContainer === event.container) {
+      console.log('MISMA COLUMNA', event);
       moveItemInArray(
         event.container.data,
         event.previousIndex,
         event.currentIndex
       );
     } else {
+      event.previousContainer.data[event.previousIndex].completed =
+        !event.previousContainer.data[event.previousIndex].completed;
+
       transferArrayItem(
         event.previousContainer.data,
         event.container.data,
