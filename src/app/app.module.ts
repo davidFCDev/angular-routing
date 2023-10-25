@@ -27,6 +27,7 @@ import { TasksPageComponent } from './pages/tasks-page/tasks-page.component';
 import { KanbanTasksComponent } from './components/kanban-tasks/kanban-tasks.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { TaskComponent } from './components/task/task.component';
+import { LifeCycleDirective } from './directives/life-cycle.directive';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { TaskComponent } from './components/task/task.component';
     TasksPageComponent,
     KanbanTasksComponent,
     TaskComponent,
+    LifeCycleDirective,
   ],
   imports: [
     BrowserModule,
