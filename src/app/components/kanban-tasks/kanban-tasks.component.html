@@ -37,7 +37,7 @@
       <h3 class="no-task-completed">You should complete your tasks!</h3>
     </ng-container>
     <div class="list-item" *ngFor="let task of doneTasks" cdkDrag>
-      <app-task [task]="task"></app-task>
+      <app-task appLifeCycle [task]="task"></app-task>
     </div>
   </div>
 </div>

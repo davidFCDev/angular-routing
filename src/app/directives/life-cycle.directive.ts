@@ -1,18 +1,27 @@
-import { Directive, OnInit, OnDestroy } from '@angular/core';
+import { Directive, OnInit, OnDestroy, OnChanges, SimpleChanges } from '@angular/core';
 
 @Directive({
-  selector: '[appLifeCycle]'
+  selector: '[appLifeCycle]',
 })
-export class LifeCycleDirective implements OnInit {
-
-  constructor() { }
+export class LifeCycleDirective implements OnInit, OnDestroy, OnChanges {
+  constructor() {}
 
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+    this.lifeCycle('OnInit');
   }
 
-  lifeCycle() {
-    console.log('LifeCycleDirective');
+  ngOnChanges(changes: SimpleChanges): void {
+    this.lifeCycle('OnChanges');
   }
 
+  ngOnDestroy(): void {
+    this.lifeCycle('OnDestroy');
+  }
+
+  lifeCycle(hook: string, changes?: SimpleChanges) {
+    console.log(`Ciclo de vida ${hook}`);
+    if (changes) {
+      console.log('Cambios: ', changes);
+    }
+  }
 }
